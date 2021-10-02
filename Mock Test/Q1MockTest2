@@ -1,7 +1,0 @@
-public class Q1MockTest2
-{
-	public static void main(String[] args)
-	{
-		IBIO.output("Savit Agarwal");
-		int number = IBIO.inputInt("How many numbers to process?: ");
-		
