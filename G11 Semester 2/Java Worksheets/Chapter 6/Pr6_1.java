@@ -9,9 +9,9 @@ public class Pr6_1
 	}
 	static String stars(int n)
 	{ 
-	  String xx = "			";
+	  String xx = "		";
 	  for (int i = 0; i < n; i++)
-		  xx = xx + "*";
+		  xx = xx + "* ";
 	  return xx;
 	} 
 }

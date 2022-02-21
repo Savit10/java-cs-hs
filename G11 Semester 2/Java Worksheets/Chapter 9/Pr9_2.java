@@ -1,4 +1,4 @@
-public class Pr9_2_3 
+public class Pr9_2 
 {
 	public static void main (String[] args) 
 	{
