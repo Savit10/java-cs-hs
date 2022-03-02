@@ -9,9 +9,10 @@ public class Pr6_1
 	}
 	static String stars(int n)
 	{ 
+	  String var = IBIO.input("enter a string ");
 	  String xx = "			";
 	  for (int i = 0; i < n; i++)
-		  xx = xx + "*";
+		  xx = xx + var + " ";
 	  return xx;
 	} 
 }
