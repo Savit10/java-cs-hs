@@ -30,11 +30,32 @@ public class Queue {
 		}
 		return null;
 	} 
-	
-	public static void main (String[] args) {
-		Queue newQueue = new Queue();
-		newQueue.enqueue("Hello");
-		System.out.println(newQueue.dequeue());
+	public void printQueue()
+	{
+		if(this.isEmptyy())
+		{
+			System.out.println("Queue is empty");
+			return;
+		}
+		NodeString temp = head;
+		System.out.print("Head--> ");
+		while (temp != null)
+		{
+			System.out.print(temp.data);
+			System.out.print(", ");
+			temp = temp.next;
+		}	
+		System.out.println("<--Tail");
+	}
+	public Stack reverseQueue(Queue x)
+	{
+		Stack reverse = new Stack();
+		while (!x.isEmptyy())
+		{
+			String y = x.dequeue();
+			reverse.push(y);
+		}
+		return reverse;
 	}
 }
 

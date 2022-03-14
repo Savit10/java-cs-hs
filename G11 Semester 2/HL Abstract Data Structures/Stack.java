@@ -9,16 +9,16 @@
 
 public class Stack
 {
-	Node top;
+	NodeString top;
 	
 	public boolean isEmpty()
 	{	// top == null is a boolean expression that will return TRUE or FALSE. This is an shortcut of if..else
 		return top == null;
 	}
 	
-	public void push(int n)
+	public void push(String n)
 	{
-		Node newNode = new Node(); // create a node to push
+		NodeString newNode = new NodeString(); // create a node to push
 		newNode.data = n;  // place the data in the new node
 		if( isEmpty() )
 		{
