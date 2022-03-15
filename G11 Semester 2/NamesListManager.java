@@ -131,12 +131,20 @@ public class NamesListManager
 	public static void add(String[] a, String data)
 	{
 		// this method will add data (a String) at the end of the array (the first free index)
-		for (int i = 0; i < a.length; i++)
+		if (isFull())
 		{
-			if (a[i] == null)
+			System.out.println("Error - array full");
+		}
+		else
+		{
+			for (int i = 0; i < a.length; i++)
 			{
-				a[i] = data;
-				break;
+				if (a[i] == null)
+				{
+					a[i] = data;
+					lastIndex++;
+					break;
+				}
 			}
 		}
 		printArray(a);
@@ -162,7 +170,7 @@ public class NamesListManager
 		{	System.out.printf("%s not found.\n", data);
 		} else {
 			// write code that will copy/move up the contents of the array by one index to remove the element
-			for (int i = 1; i < a.length-indexToRemove; i++)
+			for (int i = indexToRemove; i < a.length-indexToRemove; i++)
 			{
 				a[i]=a[i-1];
 			}
