@@ -45,26 +45,19 @@
 	Error - array full
 	Start -->  Bob  Gale  Ed  Faye  Ives  Chuck  Abe  Dean  StarLord  Groot
 			[ 10 elements in array ]
-
 	search for Anne: -1
-
 	search for Dean: 7
-
 	remove(array, "bob"):
 	Start -->  Gale  Ed  Faye  Ives  Chuck  Abe  Dean  StarLord  Groot
 			[ 9 elements in array ]
-
 	remove(array, "Abe"):
 	Start -->  Gale  Ed  Faye  Ives  Chuck  Dean  StarLord  Groot
 			[ 8 elements in array ]
-
 	remove(array, "groot"):
 	Start -->  Gale  Ed  Faye  Ives  Chuck  Dean  StarLord
 			[ 7 elements in array ]
-
 	remove(array, "James"):
 	James not found.
-
 	insert(array, "Diana", 0);
 	Start -->  Gale  Ed  Faye  Ives  Chuck  Dean  StarLord  StarLord
 			[ 8 elements in array ]
@@ -82,7 +75,6 @@
 			[ 8 elements in array ]
 	Start -->  Diana  Gale  Ed  Faye  Ives  Chuck  Dean  StarLord
 			[ 8 elements in array ]
-
 	insert(array, "Bruce", 4);
 	Start -->  Diana  Gale  Ed  Faye  Ives  Chuck  Dean  StarLord  StarLord
 			[ 9 elements in array ]
@@ -94,7 +86,6 @@
 			[ 9 elements in array ]
 	Start -->  Diana  Gale  Ed  Faye  Bruce  Ives  Chuck  Dean  StarLord
 			[ 9 elements in array ]
-
 	insert(array, "Alfred", 9);
 	Start -->  Diana  Gale  Ed  Faye  Bruce  Ives  Chuck  Dean  StarLord  Alfred
 			[ 10 elements in array ]
@@ -108,10 +99,10 @@ public class NamesListManager
 	private final static int MAXSIZE = 10;
 	private static int lastIndex = 0;
 	
-	public static boolean isFull()
+	public static boolean isFull(String[] a)
 	{
-		return lastIndex == MAXSIZE;
-	/*	if (lastIndex == MAXSIZE)
+		return lastIndex == a.length;
+	/*	if (lastIndex == a.length)
 	 *		return true;
 	 *	else
 	 *		return false;
@@ -131,21 +122,14 @@ public class NamesListManager
 	public static void add(String[] a, String data)
 	{
 		// this method will add data (a String) at the end of the array (the first free index)
-		if (isFull())
+		if( isFull(a) == true )
 		{
 			System.out.println("Error - array full");
 		}
 		else
 		{
-			for (int i = 0; i < a.length; i++)
-			{
-				if (a[i] == null)
-				{
-					a[i] = data;
-					lastIndex++;
-					break;
-				}
-			}
+			a[lastIndex] = data;
+			lastIndex++;
 		}
 		printArray(a);
 	}
@@ -153,34 +137,44 @@ public class NamesListManager
 	public static int search(String[] a, String data)
 	{
 		// this method will return the index where the data (a String) is found, or -1 if not found
-		for (int i = 0; i < a.length; i++)
+		for(int i = 0; i < a.length; i++)
 		{
-			if (a[i] == data)
+			if(a[i]== data) //WRONG: cannot compare string contents directly unless using a[i].equals(data)
 			{
 				return i;
 			}
 		}
-		return -1;
+		return -1;	
 	}
 	
 	public static void remove(String[] a, String data)
 	{
 		int indexToRemove = search(a, data);
-		if( indexToRemove == -1 )
-		{	System.out.printf("%s not found.\n", data);
-		} else {
+		if( indexToRemove == -1)
+		{	
+			System.out.printf("%s not found.\n", data);
+		} 
+		else if (indexToRemove == lastIndex)
+		{
+			a[indexToRemove] = null;
+			printArray(a);
+		}
+		else 
+		{
 			// write code that will copy/move up the contents of the array by one index to remove the element
-			for (int i = indexToRemove; i < a.length-indexToRemove; i++)
+			for (int i = indexToRemove; i < lastIndex-1; i++)
 			{
-				a[i]=a[i-1];
+				a[i] = a[i+1];
+				
 			}
+			lastIndex--;
 			printArray(a);
 		}
 	}
 	
 	public static void insert(String[] a, String data, int index)
 	{
-		if( isFull() == true )
+		if( isFull(a) == true )
 			System.out.println("Error - array full");
 		else {
 			lastIndex++;
@@ -206,11 +200,11 @@ public class NamesListManager
 		
 		System.out.println("\nsearch for Anne: " + search(array, "Anne") );
 		System.out.println("\nsearch for Dean: " + search(array, "Dean") );
-		System.out.println("\nremove(array, \"bob\"):");
-		remove(array, "bob");
+		System.out.println("\nremove(array, \"Bob\"):");
+		remove(array, "Bob");
 		System.out.println("\nremove(array, \"Abe\"):");
 		remove(array, "Abe");
-		System.out.println("\nremove(array, \"groot\"):");
+		System.out.println("\nremove(array, \"Groot\"):");
 		remove(array, "groot");
 		System.out.println("\nremove(array, \"James\"):");
 		remove(array, "James");
@@ -220,6 +214,5 @@ public class NamesListManager
 		insert(array, "Bruce", 4);
 		System.out.println("\ninsert(array, \"Alfred\", 9);");
 		insert(array, "Alfred", 9);
-
 	}
 }
