@@ -139,7 +139,7 @@ public class NamesListManager
 		// this method will return the index where the data (a String) is found, or -1 if not found
 		for(int i = 0; i < a.length; i++)
 		{
-			if(a[i]== data) //WRONG: cannot compare string contents directly unless using a[i].equals(data)
+			if(a[i].equals(data)) //WRONG: cannot compare string contents directly unless using a[i].equals(data)
 			{
 				return i;
 			}
@@ -154,11 +154,6 @@ public class NamesListManager
 		{	
 			System.out.printf("%s not found.\n", data);
 		} 
-		else if (indexToRemove == lastIndex)
-		{
-			a[indexToRemove] = null;
-			printArray(a);
-		}
 		else 
 		{
 			// write code that will copy/move up the contents of the array by one index to remove the element
@@ -205,7 +200,7 @@ public class NamesListManager
 		System.out.println("\nremove(array, \"Abe\"):");
 		remove(array, "Abe");
 		System.out.println("\nremove(array, \"Groot\"):");
-		remove(array, "groot");
+		remove(array, "Groot");
 		System.out.println("\nremove(array, \"James\"):");
 		remove(array, "James");
 		System.out.println("\ninsert(array, \"Diana\", 0);");

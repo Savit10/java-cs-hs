@@ -1,10 +1,9 @@
-public class Employee {
-	
+public class Employee 
+{
 	int id;
 	String firstName;
 	String lastName;
 	int salary;
-	
 	public Employee(int identification, String first, String last, int money)
 	{
 		id = identification;
@@ -16,26 +15,38 @@ public class Employee {
 	{
 		System.out.println("The employee is " + this.firstName + " " + this.lastName + " and their salary is " + this.salary);
 	}
-	public int SalaryMax(Employee employee1, Employee employee2, Employee employee3, Employee employee4)
+	public void printHighestPaid()
 	{
-		int [] array = {employee1.salary, employee2.salary, employee3.salary, employee4.salary};
+		System.out.println("The highest paid employee is " + this.firstName + " " + this.lastName + " and his salary is " + this.salary);
+	}
+	public static Employee SalaryMax(Employee [] a)
+	{
+		// int [] array = {a[0].salary, a[1].salary, a[2].salary, a[3].salary};
+		
+		int t = 0;
 		int max = 0;
-		for (int i = 0; i < array.length; i++)
+		for (int i = 0; i < a.length; i++)
 		{
-			if (array[i] > max)
+			if (a[i].salary > max)
 			{
-				max = array[i];
+				max = a[i].salary;
+				t = i;
 			}
 		}
-		return max;
+		return a[t];	
 	}
-	
-	public static void main (String[] args) {
+	public static void main (String[] args) 
+	{
 		Employee jose = new Employee(001, "Pablo", "Escobar", 50000);
+		jose.printNameAndSalary();
 		Employee marx = new Employee(042, "Karl", "Marx", 9);
-		Employee batman = new Employee(007, "Bruce", "Wayne", 100000);
+		marx.printNameAndSalary();
+		Employee batman = new Employee(007, "Bruce", "Wayne", 10000);
+		batman.printNameAndSalary();
 		Employee soviet = new Employee(902, "Vladimir", "Putin", 21);
-		System.out.println(
+		soviet.printNameAndSalary();
+		Employee [] array1 = {jose, marx, batman, soviet};
+		Employee highestPaidEmployee = SalaryMax(array1);	
+		highestPaidEmployee.printHighestPaid();
 	}
 }
-
