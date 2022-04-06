@@ -1,27 +1,32 @@
+import java.util.*;
 public class PalindromeStack {
 	
-	public static boolean PalindromeStack(String s)
+	public static void PalindromeStack(String s)
 	{
+		int t=0;
 		char [] array = s.toCharArray();
-		Stack stack1 = new Stack();
+		StackChar stack1 = new StackChar();
 		for (int i = 0; i< array.length; i++)
 		{
-			stack1.push((String)(array[i]));
+			stack1.push(array[i]);
 		}
 		while (!stack1.isEmpty())
 		{
-			int t=0;
 			if (stack1.pop() != array[t])
 			{
-				return false;
+				System.out.println(s + " is not a palindrome");
+				break;
 			}
 			t++;
 		}
-		return true;
+		System.out.println(s + " is a palindrome");
 	}
 	
 	public static void main (String[] args) {
-		System.out.println(PalindromeStack("RADAR"));
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string to check if its a palindrome? ");
+		String x = sc.nextString();
+		PalindromeStack(x);
 	}
 }
 
