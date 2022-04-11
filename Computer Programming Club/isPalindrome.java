@@ -1,14 +1,18 @@
+import java.util.*;
 public class isPalindrome {
 	public static void main (String[] args) {
-		String s = IBIO.input("Enter a string: ");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string: ");
+		String s = sc.nextLine();
 		while(s.length()==1)
 		{
 			System.out.println("length of string is 1, error");
-			s = IBIO.input("Enter a string: ");
+			System.out.println("Enter a string: ");
+			s = sc.nextLine();
 		}
 		char [] array = s.toCharArray();
 		int size = array.length;
-		boolean t = false;
+		boolean t = true;
 		for (int i = 0; i < (size/2); i++)
 		{
 			if (array[i] != array[size - i - 1])
