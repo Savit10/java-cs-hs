@@ -1,0 +1,12 @@
+public class JavaArrayInterviewQuestions {
+	
+	// given a sorted array, return the index of a given value or -1 if not found
+	public static int returnGivenValue (Object [] array, Object s)
+	{
+		
+	
+	public static void main (String[] args) {
+		
+	}
+}
+
