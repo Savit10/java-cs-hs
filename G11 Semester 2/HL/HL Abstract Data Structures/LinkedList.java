@@ -81,7 +81,7 @@ public class LinkedList
 		}
 		else
 		{	
-			for (int i = 0; i < index - 1; i++) 
+			for (int i = 0; i < index -1; i++)
 			// can do with while (temp.hasNext() && i < index -1) and increment i inside loop
 			{
 				if (temp.hasNext())
@@ -93,27 +93,23 @@ public class LinkedList
 			temp.next = newNode;
 		}
 	}
-	public void delete(int index, String data) // method is deleting element after the element wanted to get deleted
+	public void delete(String data) // method is deleting element after the element wanted to get deleted
 	{
 		NodeString temp = start;
 		NodeString newNode = new NodeString(data);
-		if (index == 0)
+		if (data.equalsIgnoreCase(start.data))
 		{
 			start = start.next;
 		}
 		else
 		{
-			while (temp.hasNext() && (temp.data != newNode.data))
+			while (temp != null && (temp.next.data != newNode.data))
 			{
 				temp = temp.next;
 			}
-			if ((temp.next).hasNext())
+			if (temp.next.data.equals(newNode.data))
 			{
 				temp.next = (temp.next).next;
-			}
-			else 
-			{
-				deleteLast();
 			}
 		}
 	}	

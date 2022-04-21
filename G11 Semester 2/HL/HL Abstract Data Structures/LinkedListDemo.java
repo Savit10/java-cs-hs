@@ -19,7 +19,8 @@ public class LinkedListDemo
 		list1.append("Peter"); list1.printList();
 		list1.append("Bruce"); list1.printList();
 		list1.deleteLast(); list1.printList();
-		list1.insert(0, "stuff"); list1.printList();
-		list1.delete(2, "Lisa"); list1.printList();
+		list1.insert(5, "stuff"); list1.printList();
+		list1.delete("Lisa"); list1.printList();
+		list1.delete("Peter"); list1.printList();
 	}
 }
