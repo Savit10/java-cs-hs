@@ -1,6 +1,6 @@
 /* Sorting algorithms assignment
  * 
- * Student Name: 
+ * Student Name: Savit Agarwal
  * 
  * 
  * Please read https://en.wikipedia.org/wiki/Insertion_sort
@@ -28,40 +28,104 @@ public class SortingSkeleton
 
 	static void bubble(int[] a)
 	{
+		boolean swapped;
 		for (int i = 0; i < a.length-1; i++)
 		{
-			for (int j = i + 1; j < a.length; j++)
+			swapped = false;
+			for (int j = 0; j < a.length-i-1; j++)
 			{
-				if (a[i] > a[j])
+				if (a[j] > a[j+1])
 				{
-					int pos = a[i];
-					a[i] = a[j];
-					a[j] = pos;
+					int pos = a[j];
+					a[j] = a[j+1];
+					a[j+1] = pos;
+					swapped = true;
 				}
+			}
+			if (swapped == false)
+			{
+				break;
 			}
 		}
 	}
 
 	public static void selection(int[] a)
 	{
-		int min = a[0];
-		int minIndex = 0;
-		for (int i = 0; i < a.length; i++)
+		int min;
+		int minIndex;
+		boolean swapped;
+		for (int i = 0; i < a.length-1; i++)
 		{
-			for (int j = i + 1; j < a.length - i; j++)
+			swapped = false;
+			minIndex = i;
+			min = a[minIndex];
+			for (int j = i + 1; j < a.length; j++)
 			{
-				if (a[j] > min)
+				if (a[j] < min)
 				{
 					min = a[j];
 					minIndex = j;
+					swapped = true;
 				}
 			}
-			int pos = a[i];
-			a[i] = min;
-			a[minIndex] = pos;
+			if (swapped = true)
+			{
+				int pos = a[i];
+				a[i] = min;
+				a[minIndex] = pos;
+			}
 		}		
 	}
+	static void bubbleDesc(int[] a)
+	{
+		boolean swapped;
+		for (int i = 0; i < a.length-1; i++)
+		{
+			swapped = false;
+			for (int j = 0; j < a.length-i-1; j++)
+			{
+				if (a[j] < a[j+1])
+				{
+					int pos = a[j];
+					a[j] = a[j+1];
+					a[j+1] = pos;
+					swapped = true;
+				}
+			}
+			if (swapped == false)
+			{
+				break;
+			}
+		}
+	}
 
+	public static void selectionDesc(int[] a)
+	{
+		int max;
+		int maxIndex;
+		boolean swapped;
+		for (int i = 0; i < a.length-1; i++)
+		{
+			swapped = false;
+			maxIndex = i;
+			max = a[maxIndex];
+			for (int j = i + 1; j < a.length; j++)
+			{
+				if (a[j] > max)
+				{
+					max = a[j];
+					maxIndex = j;
+					swapped = true;
+				}
+			}
+			if (swapped = true)
+			{
+				int pos = a[i];
+				a[i] = max;
+				a[maxIndex] = pos;
+			}
+		}		
+	}
 	// https://youtu.be/JU767SDMDvA
 	public static void simpleInsertion(int[] a)
 	{
@@ -98,7 +162,40 @@ public class SortingSkeleton
 			printArray(a); System.out.println();
 		} 
 	}
-
+	
+	public static int linearSearch(int [] a, int data)
+	{
+		for (int i = 0; i < a.length; i++)
+		{
+			if (a[i] == data)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	public static int binarySearchAsce(int [] a, int data)
+	{
+		int start = 0;
+		int end = a.length-1;
+		while ( start <= end)
+		{
+			int mid = (start + end)/2;
+			if (data == a[mid])
+			{
+				return mid;
+			}
+			else if (data > a[mid])
+			{
+				start = mid + 1;
+			}
+			else 
+			{
+				end = mid - 1;
+			} 
+		}	
+		return -1;
+	}
 	// No need to modify the main method.
 	public static void main(String[] args)
 	{
@@ -106,7 +203,17 @@ public class SortingSkeleton
 		int[] array = clone(original);
 		System.out.println("Original array");
 		printArray(original);
-
+		
+		// testing linear search
+		System.out.println();
+		System.out.println("Linear Search");
+		int x = linearSearch(array, 7);
+		int y = linearSearch(array, 4);
+		int z = linearSearch(array, 1);
+		System.out.println("The index of 7 is " + x);
+		System.out.println("The index of 4 is " + y);
+		System.out.println("The index of 1 is " + z);
+		
 		System.out.println("\nBubble sort");
 		bubble( array );
 		printArray(array);
@@ -115,6 +222,27 @@ public class SortingSkeleton
 		System.out.println("\nSelection sort");
 		array = clone(original);
 		selection( array );
+		printArray(array);
+		
+		//testing binary search
+		System.out.println();
+		System.out.println("Binary Search");
+		x = binarySearchAsce(array, 1);
+		y = binarySearchAsce(array, 9);
+		z = binarySearchAsce(array, 5);
+		System.out.println("The index of 1 is " + x);
+		System.out.println("The index of 9 is " + y);
+		System.out.println("The index of 5 is " + z);
+		
+		
+		System.out.println("\nBubble sort descending");
+		array = clone(original);
+		bubbleDesc( array );
+		printArray(array);
+		
+		System.out.println("\nSelection sort descending");
+		array = clone(original);
+		selectionDesc( array );
 		printArray(array);
 
 		System.out.println("\nSimple Insertion sort");
