@@ -16,12 +16,12 @@ public class Animal {
 	}
 	// methods, note that these methods are void because we print the values out in the methods 
 	// to avoid doing them repeatedly in the main method
-	public void outputAnimal(Animal animal)
+	public static void outputAnimal(Animal animal)
 	{
 		System.out.println();
 		System.out.println("The animal's name is " + animal.name + ", they drink " + animal.water + 
 		" gallons of water per day and eat " + animal.food + " pounds of food per day, their cage ID is " + animal.id + 
-		" and their weight is " + this.weight + "\n");
+		" and their weight is " + animal.weight + "\n");
 	}
 	public static void totalWater(Animal[] array )
 	{
