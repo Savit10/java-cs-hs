@@ -10,7 +10,7 @@ public class QueueDemo {
 		System.out.println(newQueue.tail);
 		newQueue.printQueue();
 		newQueue.dequeue();
-		Queue reverse = reverseQueue(newQueue);
+		Stack reverse = reverseQueue(newQueue);
 		reverse.printQueue();
 	}
 		
