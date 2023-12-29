@@ -40,7 +40,7 @@ public class Markbook
 	}
 
 
-	public static String[] calculate(int[][] scores)
+	public void calculate(int[][] scores)
 	{	// calculate the average grade for each student, then
 		// convert it to a letter grade with scoreToGrade method
 		// and put result into a 3rd parallel array (averages)

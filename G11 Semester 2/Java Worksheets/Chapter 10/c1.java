@@ -1,5 +1,5 @@
-public class Pr10_1 {	
-	public static void main (String[] args) 
+public class c1{
+	public static void main (String[] args)
 	{
 		String ss = IBIO.input("enter a word: ");
 		char [] xx = ss.toCharArray();

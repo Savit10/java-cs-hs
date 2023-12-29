@@ -1,3 +1,5 @@
+package TicTacToe;
+
 import java.util.Scanner;
 public class Board {
 	int size;
@@ -70,9 +72,7 @@ public class Board {
 	} 
 	public boolean winningCheck()
 	{
-		for (int i = 0; i < array.length; i++)
-		{
-			if (lengthandRowCheck(array[
+
 	}	
 	public static void main (String[] args) {
 		Board board = new Board();
@@ -89,13 +89,7 @@ public class Board {
 		System.out.println("Player 2 has what type of shape?");
 		shape = sc.next();
 		Player player2 = new Player (name, shape);
-		while ()
-		{
-			System.out.println("Enter a row number for " + player1.name + "'s move?");
-			int row = sc.nextInt();
-			System.out.println("Enter a column number for " + player1.name + "'s move?");
-			int row = sc.nextInt();
-		}
+
 	}
 }
 

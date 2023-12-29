@@ -5,9 +5,8 @@
  * Topic: Arrays, algorithms, problem solving
  * 
  */
-import java.util.*;
 
-public class Q3Practical
+public class q3Practical
 {	
 	public static int max(int[] a)
 	{

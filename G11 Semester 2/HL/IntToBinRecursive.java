@@ -1,3 +1,5 @@
+package HL;
+
 import java.util.Scanner;
 
 public class IntToBinRecursive

@@ -14,7 +14,6 @@ public class ArraysBigJavaSelfCheck {
 		values[0] = 10;
 		values[values.length-1] = 10;
 		String [] words = new String[10];
-		String []
 	}
 }
 

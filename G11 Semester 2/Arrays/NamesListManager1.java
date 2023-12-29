@@ -147,7 +147,7 @@ public class NamesListManager1
 		// this method will return the index where the data (a String) is found, or -1 if not found
 		for (int i = 0; i < a.length; i++)
 		{
-			if (a[i] == data)
+			if (data == a[i])
 			{
 				return i;
 			}
@@ -170,11 +170,11 @@ public class NamesListManager1
 		}
 	}
 	
-	public static void insert(String[] a, String data, int index)
+	public static void insert(String[] a, String data)
 	{
-		if( isFull() == true )
+		if(isFull()) {
 			System.out.println("Error - array full");
-		else {
+		} else {
 			lastIndex++;
 			for(int i = lastIndex-1; i > index; i--)
 			{	a[i] = a[i-1];
@@ -207,11 +207,11 @@ public class NamesListManager1
 		System.out.println("\nremove(array, \"James\"):");
 		remove(array, "James");
 		System.out.println("\ninsert(array, \"Diana\", 0);");
-		insert(array, "Diana", 0);
+		insert(array, "Diana");
 		System.out.println("\ninsert(array, \"Bruce\", 4);");
-		insert(array, "Bruce", 4);
+		insert(array, "Bruce");
 		System.out.println("\ninsert(array, \"Alfred\", 9);");
-		insert(array, "Alfred", 9);
+		insert(array, "Alfred");
 
 	}
 }

@@ -49,7 +49,6 @@ public class Queue {
 	}
 	public Stack reverseQueue(Queue x)
 	{
-		Stack reverse = new Stack();
 		while (!x.isEmptyy())
 		{
 			String y = x.dequeue();
